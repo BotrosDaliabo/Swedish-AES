@@ -1,0 +1,126 @@
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Startfilen för programmet, koordinerar programflödet\r\nimport preprocess\r\nfrom internaltypes import Feature, Grade\r\nfrom internaltypes import Feature\r\nfrom train import predict_in_svm, predict_in_ldac\r\nfrom evaluate import calculate_agreement\r\nfrom evaluate import create_grading_dict\r\nimport numpy as np\r\nfrom typing import List, Dict\r\nfrom os import path, read\r\narray = []\r\nessay_collection: List[Dict[Feature, int]]\r\ngrade_dict = Dict[str, Grade]\r\n\r\n\r\n# Serialiserar varje uppsatsvektor till filen essays.pickle för att inte behöva bearbeta varje gång programmet testas\r\ndef cache_essays(essays: List[Dict[Feature, int]]):\r\n    import pickle\r\n    pickle.dump(essays, open(\"essays.pickle\", \"wb\"))\r\n\r\n\r\ndef cache_grades(grades: dict):\r\n    import pickle\r\n    pickle.dump(grades, open(\"grades.pickle\", \"wb\"))\r\n\r\n\r\n# Avserialiserar uppsatser i filen \"essays.pickle\" och returnerar en lista innehållandes en dict för varje uppsats\r\ndef read_essays() -> List[Dict[Feature, int]]:\r\n    import pickle\r\n    return pickle.load(open(\"essays.pickle\", \"rb\"))\r\n\r\n\r\ndef read_grades() -> Dict[str, int]:\r\n    import pickle\r\n    return pickle.load(open(\"grades.pickle\", \"rb\"))\r\n\r\n\r\ndef start_experiment():\r\n    features = Feature.__members__.values()\r\n    features_list = list(features)\r\n    svm_predictions = predict_in_svm_2(essay_collection, features_list, grade_dict)\r\n    print(\"kappa value of SVM predictions: \")\r\n    kappa_value = calculate_agreement(create_grading_dict(grade_dict) ,svm_predictions)\r\n    print(kappa_value)\r\n\r\ndef input_grades():\r\n    grades: dict = dict()\r\n    print(\"Input on of the following grade for each essay\", end=': ')\r\n    [print(grade, end=' ') for grade in Grade.__members__.keys()]\r\n    print()\r\n    for essay in essay_collection:\r\n        grades[essay[\"id\"]] = Grade.__members__[input(\"Input grade for essay %s: \" % essay[\"id\"])]\r\n    cache_grades(grades)\r\n\r\n\r\n\r\nif __name__ == '__main__':\r\n    if path.exists(\"essays.pickle\"):\r\n        essay_collection = read_essays()\r\n    else:\r\n        essay_collection = preprocess.start()\r\n        cache_essays(essay_collection)\r\n    if path.exists(\"grades.pickle\"):\r\n        grade_dict = read_grades()\r\n    else:\r\n        input_grades()\r\n\r\n    print(\"Training the SVM classifier\")\r\n    start_experiment()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- main.py	(revision e215025a354e67c03b953d1b8e2130d2cf748f3b)
++++ main.py	(date 1589365142339)
+@@ -3,11 +3,8 @@
+ from internaltypes import Feature, Grade
+ from internaltypes import Feature
+ from train import predict_in_svm, predict_in_ldac
+-from evaluate import calculate_agreement
+-from evaluate import create_grading_dict
+-import numpy as np
++from evaluate import count_kappa, __calculate_agreement
+ from typing import List, Dict
+-from os import path, read
+ array = []
+ essay_collection: List[Dict[Feature, int]]
+ grade_dict = Dict[str, Grade]
+@@ -38,9 +35,9 @@
+ def start_experiment():
+     features = Feature.__members__.values()
+     features_list = list(features)
+-    svm_predictions = predict_in_svm_2(essay_collection, features_list, grade_dict)
+-    print("kappa value of SVM predictions: ")
+-    kappa_value = calculate_agreement(create_grading_dict(grade_dict) ,svm_predictions)
++    svm_predictions = predict_in_svm(essay_collection, features_list, grade_dict)
++    print("Kappa value of SVM predictions: ")
++    kappa_value = count_kappa(grade_dict , svm_predictions)
+     print(kappa_value)
+ 
+ def input_grades():
+@@ -55,6 +52,8 @@
+ 
+ 
+ if __name__ == '__main__':
++    __calculate_agreement(grade_dict, grade_dict)
++    """
+     if path.exists("essays.pickle"):
+         essay_collection = read_essays()
+     else:
+@@ -67,3 +66,4 @@
+ 
+     print("Training the SVM classifier")
+     start_experiment()
++    """
+Index: evaluate.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from typing import Dict\r\nfrom internaltypes import GradingDict, Grade\r\n\r\n\r\ndef calculate_agreement(teacher: Dict[str, Grade], machine: Dict[str, Grade]):\r\n    assert (len(teacher) == len(machine), \"The number of grades does not match\")\r\n    total = 0\r\n    agreements = 0\r\n    for value in teacher.items():\r\n        for value2 in machine.items():\r\n            total += 1\r\n            if value[1] == value2[1]:\r\n                agreements += 1\r\n    return agreements / total\r\n\r\n\r\n# Tar emot en dictionary innehållandes ett betyg per uppsats och returnerar en dictionary innehållandes info om hur många uppsatser\r\n# fått visst betyg, t.ex. 10 uppsatser har fått betyget G\r\ndef create_grading_dict(grades: Dict) -> GradingDict[Grade, int]:\r\n    grading_dict = GradingDict()\r\n    for grade in grades.values():\r\n        if grade == Grade.IG:\r\n            grading_dict[Grade.IG] += 1\r\n        elif grade == Grade.G:\r\n            grading_dict[Grade.G] += 1\r\n        else:\r\n            grading_dict[Grade.VG] += 1\r\n    return grading_dict\r\n\r\n# Tar emot en dictionary innehållandes ett betyg för uppsats för både lärare och för maskin, en dict per var.\r\ndef count_kappa(teacher: Dict[str, Grade], machine: Dict[str, Grade]):\r\n    agreement_degree = calculate_agreement(teacher, machine)\r\n    teacher_grades = create_grading_dict(teacher)\r\n    machine_grades = create_grading_dict(machine)\r\n    random_agreement = count_random_agreement(teacher_grades, machine_grades)\r\n    return (agreement_degree - random_agreement) / (1 - random_agreement)\r\n\r\n\r\ndef count_random_agreement(teacher: GradingDict, machine: GradingDict):\r\n    num_of_essays = teacher[Grade.IG] + teacher[Grade.G] + teacher[Grade.VG]\r\n    assert (num_of_essays == machine[Grade.IG] + machine[Grade.G] + machine[Grade.VG])\r\n    return (((teacher[Grade.IG] * machine[Grade.IG]) / num_of_essays) + (\r\n            (teacher[Grade.G] * machine[Grade.G]) / num_of_essays)\r\n            + ((teacher[Grade.VG] * machine[Grade.VG]) / num_of_essays)) / num_of_essays\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- evaluate.py	(revision e215025a354e67c03b953d1b8e2130d2cf748f3b)
++++ evaluate.py	(date 1589365168395)
+@@ -2,8 +2,8 @@
+ from internaltypes import GradingDict, Grade
+ 
+ 
+-def calculate_agreement(teacher: Dict[str, Grade], machine: Dict[str, Grade]):
+-    assert (len(teacher) == len(machine), "The number of grades does not match")
++def __calculate_agreement(teacher: Dict[str, Grade], machine: Dict[str, Grade]):
++    assert len(teacher) == len(machine), "The number of grades does not match"
+     total = 0
+     agreements = 0
+     for value in teacher.items():
+@@ -16,7 +16,7 @@
+ 
+ # Tar emot en dictionary innehållandes ett betyg per uppsats och returnerar en dictionary innehållandes info om hur många uppsatser
+ # fått visst betyg, t.ex. 10 uppsatser har fått betyget G
+-def create_grading_dict(grades: Dict) -> GradingDict[Grade, int]:
++def __create_grading_dict(grades: Dict) -> GradingDict[Grade, int]:
+     grading_dict = GradingDict()
+     for grade in grades.values():
+         if grade == Grade.IG:
+@@ -29,9 +29,9 @@
+ 
+ # Tar emot en dictionary innehållandes ett betyg för uppsats för både lärare och för maskin, en dict per var.
+ def count_kappa(teacher: Dict[str, Grade], machine: Dict[str, Grade]):
+-    agreement_degree = calculate_agreement(teacher, machine)
+-    teacher_grades = create_grading_dict(teacher)
+-    machine_grades = create_grading_dict(machine)
++    agreement_degree = __calculate_agreement(teacher, machine)
++    teacher_grades = __create_grading_dict(teacher)
++    machine_grades = __create_grading_dict(machine)
+     random_agreement = count_random_agreement(teacher_grades, machine_grades)
+     return (agreement_degree - random_agreement) / (1 - random_agreement)
+ 
+Index: train.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from sklearn import svm\r\nfrom typing import Dict, List\r\nfrom sklearn.discriminant_analysis import LinearDiscriminantAnalysis\r\nimport numpy as np\r\nfrom sklearn.model_selection import train_test_split\r\nfrom sklearn.metrics import classification_report, confusion_matrix\r\n\r\nfrom internaltypes import Feature, Grade\r\n\r\ndef predict_in_svm(essays: List[Dict[Feature, int]], features: List[Feature], grading_dict: Dict[str, Grade]) -> Dict[str, Grade]:\r\n    # Implementera hyperparameter tuning m.h.a korsvalidering\r\n    feature_values = np.arange(len(essays) * len(features) , dtype=float).reshape(len(essays), len(features))\r\n    #labels =[\"IG\",\"IG\",\"IG\",\"IG\",\"IG\",\"IG\",\"IG\",\"IG\", \"G\",\"G\",\"G\",\"G\",\"G\",\"G\",\"G\",\"G\", \"VG\",\"VG\",\"VG\",\"VG\",\"VG\",\"VG\",\"VG\",\"VG\"]\r\n    labels = [grade.name for grade in grading_dict.values()]\r\n    row = 0\r\n    for essay in essays:\r\n        col = 0\r\n        for feature in features:\r\n            feature_values[row][col] = essay[feature]\r\n            col += 1\r\n        row += 1\r\n\r\n        # delar tränings- och testdata - korsvalidering\r\n    feature_values_train, feature_values_test, labels_train, labels_test = train_test_split(feature_values, labels, test_size=0.2)\r\n        # skapar SVM klassifierare\r\n        # fyra typer av kernels som kan användas \"linear\", \"poly\", \"sigmoid\", \"precomputed\",\"rbf\" som är default kernel om inget anges.\r\n        # C justeras manuellt\r\n\r\n    svmClassifier = svm.SVC(kernel=\"linear\", gamma=\"auto\", C=100000000.0)\r\n    svmClassifier.fit(feature_values, labels)\r\n    labels_predictions = svmClassifier.predict(feature_values)\r\n        #print(classification_report(labels,labels_predict))\r\n    for index in range(len(labels_predictions)):\r\n        print(\"Essay %s: %s\" % (essay_id[index], labels_predictions[index]))\r\n\r\n    for prediction in labels_predictions:\r\n        for essay_id_ in essay_id:\r\n            if prediction == \"IG\":\r\n                grading_dict.get(essay_id_) == (Grade.IG, 0)\r\n            if prediction == \"G\":\r\n                grading_dict.get(essay_id_) == (Grade.G, 1)\r\n            if prediction == \"VG\":\r\n                grading_dict.get(essay_id_) == (Grade.IG, 2)\r\n\r\n    return grading_dict\r\n\r\n\r\n\r\ndef predict_in_ldac(essays: List[float], features: List[str]):\r\n    feature_values = np.arange(len(essays), dtype=float).reshape(len(essays), features)\r\n    # labels är ej korrekta utan ska justeras\r\n    labels =[\"IG\",\"IG\",\"IG\",\"IG\",\"IG\",\"IG\",\"IG\",\"IG\", \"G\",\"G\",\"G\",\"G\",\"G\",\"G\",\"G\",\"G\", \"VG\",\"VG\",\"VG\",\"VG\",\"VG\",\"VG\",\"VG\",\"VG\"]\r\n\r\n    row = 0\r\n    for essay in essays :\r\n        col = 0\r\n        for feature in range(1, features+1):\r\n            feature_values[row][col] = essay\r\n            col += 1\r\n        row += 1\r\n    ldaClassifier = LinearDiscriminantAnalysis()\r\n    ldaClassifier.fit(feature_values, labels)\r\n    labels_predict = ldaClassifier.predict(feature_values)\r\n    return labels_predict\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- train.py	(revision e215025a354e67c03b953d1b8e2130d2cf748f3b)
++++ train.py	(date 1589365142339)
+@@ -10,7 +10,6 @@
+ def predict_in_svm(essays: List[Dict[Feature, int]], features: List[Feature], grading_dict: Dict[str, Grade]) -> Dict[str, Grade]:
+     # Implementera hyperparameter tuning m.h.a korsvalidering
+     feature_values = np.arange(len(essays) * len(features) , dtype=float).reshape(len(essays), len(features))
+-    #labels =["IG","IG","IG","IG","IG","IG","IG","IG", "G","G","G","G","G","G","G","G", "VG","VG","VG","VG","VG","VG","VG","VG"]
+     labels = [grade.name for grade in grading_dict.values()]
+     row = 0
+     for essay in essays:
+@@ -31,16 +30,7 @@
+     labels_predictions = svmClassifier.predict(feature_values)
+         #print(classification_report(labels,labels_predict))
+     for index in range(len(labels_predictions)):
+-        print("Essay %s: %s" % (essay_id[index], labels_predictions[index]))
+-
+-    for prediction in labels_predictions:
+-        for essay_id_ in essay_id:
+-            if prediction == "IG":
+-                grading_dict.get(essay_id_) == (Grade.IG, 0)
+-            if prediction == "G":
+-                grading_dict.get(essay_id_) == (Grade.G, 1)
+-            if prediction == "VG":
+-                grading_dict.get(essay_id_) == (Grade.IG, 2)
++        print("Essay %s: %s" % (essays[index], labels_predictions[index]))
+ 
+     return grading_dict
+ 

@@ -1,0 +1,19 @@
+Kännetecken;Förekomst för SVM;Förekomst för LDAC
+no_of_tokens;10;6
+no_of_words;0;2
+no_of_sentences;10;1
+no_of_grammatical_err;4;6
+average_word_length;4;4
+no_of_verbs;0;4
+no_of_pronouns;3;6
+no_of_prepositions;0;0
+no_of_participles;3;3
+no_of_adjectives;0;2
+no_of_adverbs;0;3
+no_of_nouns;10;5
+no_of_stopwords;0;3
+fourth_root_words;0;2
+no_of_unique_words;0;1
+no_of_long_words;0;9
+OVIX;0;1
+NR;0;4

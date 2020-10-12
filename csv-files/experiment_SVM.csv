@@ -1,0 +1,101 @@
+Kännetecken;Kappavärde
+['no_of_tokens', 'no_of_sentences', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_pronouns', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_participles', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_participles', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_pronouns', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_participles', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_participles', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_adverbs', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_adverbs', 'no_of_nouns'];0.603306
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns'];0.602210
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns'];0.602210
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns'];0.602210
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns'];0.602210
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_participles', 'no_of_nouns', 'no_of_long_words'];0.545946
+['no_of_tokens', 'no_of_sentences', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns', 'no_of_long_words'];0.545946
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_participles', 'no_of_nouns', 'no_of_long_words'];0.545946
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns', 'no_of_long_words'];0.545946
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns', 'no_of_long_words'];0.545946
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns', 'no_of_long_words'];0.545946
+['no_of_tokens', 'no_of_adjectives', 'no_of_stopwords', 'fourth_root_words', 'no_of_long_words'];0.544715
+['no_of_tokens', 'no_of_grammatical_err', 'no_of_adjectives', 'no_of_stopwords', 'fourth_root_words', 'no_of_long_words'];0.544715
+['no_of_tokens', 'average_word_length', 'no_of_adjectives', 'no_of_stopwords', 'fourth_root_words', 'no_of_long_words'];0.544715
+['no_of_tokens', 'no_of_grammatical_err', 'average_word_length', 'no_of_adjectives', 'no_of_stopwords', 'fourth_root_words', 'no_of_long_words'];0.544715
+['no_of_tokens', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_participles', 'no_of_stopwords', 'fourth_root_words', 'no_of_long_words'];0.544715
+['no_of_tokens', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_stopwords', 'fourth_root_words', 'no_of_long_words'];0.544715
+['no_of_tokens', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_adjectives', 'no_of_adverbs', 'no_of_stopwords', 'fourth_root_words', 'no_of_long_words'];0.544715
+['no_of_tokens', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_adjectives', 'no_of_adverbs', 'no_of_stopwords', 'fourth_root_words', 'no_of_long_words'];0.544715
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'no_of_pronouns', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns'];0.543478
+['no_of_tokens', 'no_of_sentences', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'no_of_pronouns', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'no_of_participles', 'no_of_adjectives', 'no_of_adverbs', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_participles', 'no_of_adjectives', 'no_of_adverbs', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_participles', 'no_of_adjectives', 'no_of_adverbs', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'no_of_pronouns', 'no_of_participles', 'no_of_adjectives', 'no_of_adverbs', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_participles', 'no_of_adjectives', 'no_of_adverbs', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_participles', 'no_of_adjectives', 'no_of_adverbs', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_adjectives', 'no_of_adverbs', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_adjectives', 'no_of_adverbs', 'no_of_nouns'];0.542234
+['no_of_tokens', 'no_of_sentences', 'no_of_adverbs', 'no_of_nouns'];0.538462
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_adverbs', 'no_of_nouns'];0.538462
+['no_of_tokens', 'no_of_sentences', 'no_of_pronouns', 'no_of_adverbs', 'no_of_nouns'];0.538462
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_pronouns', 'no_of_adverbs', 'no_of_nouns'];0.538462
+['no_of_words', 'no_of_nouns', 'no_of_long_words'];0.534626
+['no_of_words', 'average_word_length', 'no_of_nouns', 'no_of_long_words'];0.534626
+['no_of_words', 'no_of_pronouns', 'no_of_nouns', 'no_of_long_words'];0.534626
+['no_of_pronouns', 'no_of_nouns', 'fourth_root_words', 'no_of_long_words'];0.534626
+['no_of_words', 'no_of_grammatical_err', 'no_of_verbs', 'no_of_nouns', 'no_of_long_words'];0.534626
+['no_of_words', 'average_word_length', 'no_of_pronouns', 'no_of_nouns', 'no_of_long_words'];0.534626
+['average_word_length', 'no_of_pronouns', 'no_of_nouns', 'fourth_root_words', 'no_of_long_words'];0.534626
+['no_of_words', 'no_of_grammatical_err', 'average_word_length', 'no_of_verbs', 'no_of_nouns', 'no_of_long_words'];0.534626
+['no_of_words', 'no_of_grammatical_err', 'no_of_verbs', 'no_of_pronouns', 'no_of_nouns', 'no_of_long_words'];0.534626
+['no_of_words', 'no_of_grammatical_err', 'average_word_length', 'no_of_verbs', 'no_of_pronouns', 'no_of_nouns', 'no_of_long_words'];0.534626
+['no_of_tokens', 'no_of_sentences', 'no_of_adjectives', 'no_of_nouns'];0.530726
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_adjectives', 'no_of_nouns'];0.530726
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_adjectives', 'no_of_nouns'];0.530726
+['no_of_tokens', 'no_of_sentences', 'no_of_pronouns', 'no_of_adjectives', 'no_of_nouns'];0.530726
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_adjectives', 'no_of_nouns'];0.530726
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_adjectives', 'no_of_nouns'];0.530726
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_pronouns', 'no_of_adjectives', 'no_of_nouns'];0.530726
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_adjectives', 'no_of_nouns'];0.530726
+['no_of_words', 'no_of_pronouns', 'no_of_nouns', 'fourth_root_words', 'no_of_long_words'];0.528090
+['no_of_words', 'average_word_length', 'no_of_pronouns', 'no_of_nouns', 'fourth_root_words', 'no_of_long_words'];0.528090
+['no_of_words', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns'];0.525424
+['no_of_words', 'no_of_sentences', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_participles', 'no_of_nouns'];0.525424
+['no_of_tokens', 'no_of_adjectives', 'no_of_nouns', 'fourth_root_words', 'no_of_unique_words', 'no_of_long_words'];0.493404
+['no_of_tokens', 'no_of_grammatical_err', 'no_of_adjectives', 'no_of_nouns', 'fourth_root_words', 'no_of_unique_words', 'no_of_long_words'];0.493404
+['no_of_tokens', 'average_word_length', 'no_of_adjectives', 'no_of_nouns', 'fourth_root_words', 'no_of_unique_words', 'no_of_long_words'];0.493404
+['no_of_tokens', 'no_of_pronouns', 'no_of_adjectives', 'no_of_nouns', 'fourth_root_words', 'no_of_unique_words', 'no_of_long_words'];0.493404
+['no_of_tokens', 'no_of_grammatical_err', 'average_word_length', 'no_of_adjectives', 'no_of_nouns', 'fourth_root_words', 'no_of_unique_words', 'no_of_long_words'];0.493404
+['no_of_tokens', 'no_of_grammatical_err', 'no_of_pronouns', 'no_of_adjectives', 'no_of_nouns', 'fourth_root_words', 'no_of_unique_words', 'no_of_long_words'];0.493404
+['no_of_tokens', 'average_word_length', 'no_of_pronouns', 'no_of_adjectives', 'no_of_nouns', 'fourth_root_words', 'no_of_unique_words', 'no_of_long_words'];0.493404
+['no_of_tokens', 'no_of_grammatical_err', 'average_word_length', 'no_of_pronouns', 'no_of_adjectives', 'no_of_nouns', 'fourth_root_words', 'no_of_unique_words', 'no_of_long_words'];0.493404
+['no_of_tokens', 'no_of_sentences', 'no_of_participles', 'no_of_nouns', 'no_of_long_words'];0.488000
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_participles', 'no_of_nouns', 'no_of_long_words'];0.488000
+['no_of_tokens', 'no_of_sentences', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns', 'no_of_long_words'];0.488000
+['no_of_tokens', 'no_of_sentences', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns', 'no_of_long_words'];0.488000
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns', 'no_of_long_words'];0.488000
+['no_of_tokens', 'no_of_sentences', 'no_of_grammatical_err', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns', 'no_of_long_words'];0.488000
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_participles', 'no_of_adjectives', 'no_of_nouns', 'no_of_long_words'];0.488000
+['no_of_tokens', 'no_of_sentences', 'average_word_length', 'no_of_participles', 'no_of_adverbs', 'no_of_nouns', 'no_of_long_words'];0.488000

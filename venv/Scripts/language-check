@@ -1,0 +1,6 @@
+#!c:\users\alexa\documents\gitprojects\swedish-aes\venv\scripts\python.exe
+
+import sys
+
+from language_check import main
+sys.exit(main.main())

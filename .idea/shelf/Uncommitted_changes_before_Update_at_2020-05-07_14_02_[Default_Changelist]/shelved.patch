@@ -1,0 +1,92 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-06_12_31_[Default_Changelist]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-06_12_31_[Default_Changelist]/shelved.patch	(date 1588761112368)
++++ .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-06_12_31_[Default_Changelist]/shelved.patch	(date 1588761112368)
+@@ -0,0 +1,48 @@
++Index: preprocessfile.py
++IDEA additional info:
++Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
++<+>UTF-8
++===================================================================
++--- preprocessfile.py	(date 1588744966235)
+++++ preprocessfile.py	(date 1588744966235)
++@@ -0,0 +1,39 @@
+++# Skriptet innehåller funktioner för att behandla en enda fil
+++import textract
+++import re
+++import language_check
+++
+++def readfile():
+++    #filename = input("Enter name of file: ")
+++    filename = "memo24.docx"
+++    filepath = "unprocessed/" + filename
+++    text = textract.process(filepath).decode('UTF-8')
+++    #text = correct_possessive_pronouns(text)
+++    text = clear_parenthesis(text)
+++    text = remove_abbreviations(text)
+++    text = clear_excessive_space(text)
+++    #text = remove_quotes_mark(text)
+++    grammar = get_grammatical_errors(text)
+++    for v1 in grammar:
+++        print(v1)
+++
+++def remove_abbreviations(text):
+++    return str.replace(text, "art.", "article")
+++
+++def clear_parenthesis(text):
+++    return re.sub(r"\s\(.*?\)+", '', text)
+++
+++def clear_excessive_space(text):
+++    return re.sub(r"[\s]{2,}", ' ', text)
+++
+++# korrigerar felaktig inläsning av 's, t.ex it's
+++def correct_possessive_pronouns(text):
+++    return re.sub(r"[â]+", '\'', text)
+++
+++def remove_quotes_mark(text):
+++    return re.sub(r"[“”\"]+", '"', text)
+++
+++def get_grammatical_errors(text):
+++    return language_check.LanguageTool('en').check(text)
+++
+++if __name__ == '__main__': readfile()
++\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-06_12_31__Default_Changelist_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-06_12_31__Default_Changelist_.xml	(date 1588831963954)
++++ .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-06_12_31__Default_Changelist_.xml	(date 1588831963954)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Update_at_2020-05-06_12_31_[Default_Changelist]" date="1588761115346" recycled="true" deleted="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-06_12_31_[Default_Changelist]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2020-05-06 12:31 [Default Changelist]" />
++</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-07_13_51_[Default_Changelist]/shelved.patch
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-07_13_51_[Default_Changelist]/shelved.patch	(date 1588852262386)
++++ .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-07_13_51_[Default_Changelist]/shelved.patch	(date 1588852262386)
+@@ -0,0 +1,2 @@
++diff --git Alla_kännetecken_är_snart_färidgimplementerade.patch Alla_kännetecken_är_snart_färidgimplementerade.patch
++new file mode 100644
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-07_13_51__Default_Changelist_.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-07_13_51__Default_Changelist_.xml	(date 1588852289562)
++++ .idea/shelf/Uncommitted_changes_before_Update_at_2020-05-07_13_51__Default_Changelist_.xml	(date 1588852289562)
+@@ -0,0 +1,4 @@
++<changelist name="Uncommitted_changes_before_Update_at_2020-05-07_13_51_[Default_Changelist]" date="1588852262402" recycled="false" toDelete="true">
++  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2020-05-07_13_51_[Default_Changelist]/shelved.patch" />
++  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2020-05-07 13:51 [Default Changelist]" />
++</changelist>
+\ No newline at end of file
